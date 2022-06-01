@@ -21,13 +21,13 @@ public class StudentConfig {
                     1L,
                     "hatice",
                     "hatice.ho@gmail.com",
-                    LocalDate.of(2002, JUNE, 27)
+                    LocalDate.of(2002, JUNE, 27),20
             );
 
-            Student onur = new Student(
+            Student onur = new Student(2L,
                     "Onur",
                     "onur.ho@gmail.com",
-                    LocalDate.of(1998, JUNE, 14)
+                    LocalDate.of(1998, JUNE, 14),23
             );
 
             respository.saveAll(

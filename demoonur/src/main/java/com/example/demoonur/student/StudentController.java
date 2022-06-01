@@ -1,20 +1,19 @@
 package com.example.demoonur.student;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path= "api/v1/student")
+@RequestMapping("api/v1/student")
+@AllArgsConstructor
 public class StudentController {
 
     private final StudentSevrvice studentSevrvice;
 
-    @Autowired
-    public StudentController(StudentSevrvice studentSevrvice) {
-        this.studentSevrvice = studentSevrvice;
-    }
+
 
 
     @GetMapping
@@ -27,13 +26,13 @@ public class StudentController {
         studentSevrvice.addNewStudent(student);
     }
 
-    @DeleteMapping(path = "{studentId}")
+    @DeleteMapping("{studentId}")
     public void deleteStudent(
             @PathVariable("studentId") Long studentId) {
         studentSevrvice.deletestudent(studentId);
     }
 
-    @PutMapping(path = "{studentId}")
+    @PutMapping("{studentId}")
     public void updateStudent(
             @PathVariable("studentId") Long studentId,
             @RequestParam(required = false) String name,

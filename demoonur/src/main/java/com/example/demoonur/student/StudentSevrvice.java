@@ -1,5 +1,8 @@
 package com.example.demoonur.student;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,14 +13,13 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
+@Slf4j
 public class StudentSevrvice {
 
     private final StudentRespository studentRespository;
 
-    @Autowired
-    public StudentSevrvice(StudentRespository studentRespository) {
-        this.studentRespository = studentRespository;
-    }
+
 
     public List<Student> getStudents() {
         return studentRespository.findAll();
@@ -70,6 +72,6 @@ public class StudentSevrvice {
                 throw new IllegalStateException("email taken");
             }
         }
-            student.setEmail(email);
+        student.setEmail(email);
     }
 }
