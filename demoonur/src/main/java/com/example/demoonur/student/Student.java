@@ -1,11 +1,20 @@
 package com.example.demoonur.student;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
 @Entity
 @Table
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Student {
     @Id
     @SequenceGenerator(
@@ -24,27 +33,7 @@ public class Student {
     @Transient
     private Integer age;
 
-    public Student() {
-    }
 
-    public Student(Long id,
-                   String name,
-                   String email,
-                   LocalDate dob) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.dob = dob;
-
-    }
-
-    public Student(String name,
-                   String email,
-                   LocalDate dob) {
-        this.name = name;
-        this.email = email;
-        this.dob = dob;
-    }
 
     public Long getId() {
         return id;
@@ -87,14 +76,5 @@ public class Student {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", dob=" + dob +
-                ", age=" + age +
-                '}';
-    }
+
 }
